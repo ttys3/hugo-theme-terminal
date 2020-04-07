@@ -40,12 +40,12 @@
 
     <div class="post-content">
       {{ if .Params.showFullContent }}
-      {{ .Content | markdownify }}
+      {{ .Content | safeHTML }}
       {{ else if .Description }}
       {{ .Description | markdownify }}
       {{ else }}
       {{ if .Truncated }}
-      {{ .Summary | markdownify }}
+      {{ .Summary | safeHTML | truncate 140 }}
       {{ end }}
       {{ end }}
     </div>
