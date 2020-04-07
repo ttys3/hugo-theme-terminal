@@ -20,7 +20,7 @@
     <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Author.email }}
     <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}{{ with .Site.Copyright }}
     <rights>{{.}}</rights>{{end}}{{ if not .Date.IsZero }}
-    <updated>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</updated>{{ end }}
+    <updated>{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</updated>{{ end }}
     {{ with .OutputFormats.Get "RSS" }}
 	{{ printf "<link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
@@ -29,7 +29,8 @@
       <title>{{ .Title }}</title>
       <id>{{ .Permalink }}</id>
       <link href="{{ .Permalink }}" rel="alternate" type="text/html"/>
-      <updated>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</updated>
+      <updated>{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</updated>
+      <published>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</published>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <description>{{ .Summary | truncate 140 | html }}</description>
       <content type="html">
