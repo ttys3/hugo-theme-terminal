@@ -38,7 +38,7 @@ paginate = 5
 [outputFormats]
 [outputFormats.RSS]
 mediatype = "application/rss"
-baseName = "feed"
+baseName = "atom"
 
 [author]
     name = "荒野无灯"
