@@ -8,6 +8,7 @@
       {{ .Date.Format "2006-01-02" }}
     </span>
     {{ end }}
+
     {{ if .Params.Author }}
     <span class="post-author">::
       {{ .Params.Author }}
@@ -17,6 +18,11 @@
       {{ .Site.Params.AuthorName }}
     </span>
     {{ end }}
+
+    {{ if .GitInfo }}
+    :: Mod {{ .Lastmod.Format "2006-01-02" }}({{ .GitInfo.AbbreviatedHash }})
+    {{ end }}
+
   </div>
 
   {{ if .Params.tags }}
