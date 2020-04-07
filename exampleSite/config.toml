@@ -9,6 +9,7 @@ paginate = 5
   showMenuItems = 2
   fullWidthTheme = false
   centerTheme = false
+  AuthorName = "荒野无灯"
 
 [languages]
   [languages.en]
@@ -33,3 +34,11 @@ paginate = 5
         identifier = "showcase"
         name = "Showcase"
         url = "/showcase"
+
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "feed"
+
+[author]
+    name = "荒野无灯"

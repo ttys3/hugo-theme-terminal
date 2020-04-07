@@ -8,9 +8,13 @@
       {{ .Date.Format "2006-01-02" }}
     </span>
     {{ end }}
-    {{ with .Params.Author }}
+    {{ if .Params.Author }}
     <span class="post-author">::
-      {{ . }}
+      {{ .Params.Author }}
+    </span>
+    {{ else }}
+    <span class="post-author">::
+      {{ .Site.Params.AuthorName }}
     </span>
     {{ end }}
   </div>
