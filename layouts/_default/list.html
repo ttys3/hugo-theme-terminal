@@ -18,9 +18,9 @@
         {{ .Date.Format "2006-01-02" }}
       </span>
       {{ if .Params.Author }}
-        <span class="post-author">::{{ .Params.Author }}</span>
+        <span class="post-author">:: {{ .Params.Author }}</span>
       {{ else }}
-        <span class="post-author">::{{ .Site.Params.AuthorName }}</span>
+        <span class="post-author">:: {{ .Site.Params.AuthorName }}</span>
       {{ end }}
     </div>
 
