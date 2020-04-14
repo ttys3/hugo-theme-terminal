@@ -33,8 +33,12 @@
   </span>
   {{ end }}
 
-  {{ with .Params.Cover }}
-  <img src="{{ . | absURL }}" class="post-cover" />
+  {{ if .Params.cover }}
+    {{ if .Site.Params.pageBundle }}
+      <img src="{{ printf "%s/%s" .Dir .Params.cover | absURL }}" class="post-cover" />
+    {{ else }}
+      <img src="{{ .Params.cover | absURL }}" class="post-cover" />
+    {{ end }}
   {{ end }}
 
   <div class="post-content">
