@@ -9,7 +9,7 @@ paginate = 5
   showMenuItems = 2
   fullWidthTheme = false
   centerTheme = false
-  AuthorName = "荒野无灯"
+  authorName = "荒野无灯"
   # for RSS feed filter https://gohugo.io/functions/where/#mainsections
   mainSections = ["post", "note", "docs"]
 
