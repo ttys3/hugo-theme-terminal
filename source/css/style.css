@@ -1,5 +1,6 @@
 @import 'variables';
 
+@import 'iconfont';
 @import 'font';
 @import 'buttons';
 
@@ -10,5 +11,6 @@
 @import 'pagination';
 @import 'footer';
 
-@import 'prism';
+@import 'chroma';
 @import 'syntax';
+@import 'toc';

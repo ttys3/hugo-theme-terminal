@@ -12,8 +12,32 @@
   </div>
 </footer>
 
+<a id="back-to-top" style="display: inline-block;" href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+  <span class="iconfont icon-top"></span>
+</a>
+
 <script src="{{ "assets/main.js" | absURL }}"></script>
-<script src="{{ "assets/prism.js" | absURL }}"></script>
+{{/*  <script src="{{ "assets/prism.js" | absURL }}"></script>  */}}
+
+<script>
+document.querySelector('#post-toc').onclick = function(e) {
+  document.querySelectorAll('#post-toc li a').forEach(function(ele) {
+    ele.classList.remove('active');
+  });
+  e.target.classList.add('active');
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+      });
+  });
+});
+
+</script>
 
 <!-- Extended footer section-->
 {{ partial "extended_footer.html" . }}

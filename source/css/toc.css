@@ -1,0 +1,59 @@
+.post .post-toc {
+    position: fixed;
+    top: 40%;
+    width: 200px;
+    margin-left: 820px;
+    padding: 10px;
+    font-family: Athelas,STHeiti,Microsoft Yahei,serif;
+    border-radius: 5px;
+    background: rgba(41, 41, 47,.6);
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.125);
+    box-shadow: 1px 1px 2px rgba(0,0,0,.125);
+    word-wrap: break-word;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.post .post-toc .post-toc-title {
+
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+
+.post .post-toc .post-toc-content ul {
+    list-style: square;
+}
+
+.post .post-toc .post-toc-content ul li::before {
+    content: "";
+}
+
+.post .post-toc .active {
+    color: var(--accent);
+}
+
+#back-to-top {
+    display: inline-block;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    z-index: 10;
+    outline-style: none;
+    text-decoration: none;
+}
+
+#back-to-top .iconfont {
+    font-size: 28px;
+}
