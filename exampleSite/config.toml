@@ -45,3 +45,6 @@ baseName = "atom"
 
 [author]
     name = "荒野无灯"
+
+[markup.highlight]
+  noClasses = false
