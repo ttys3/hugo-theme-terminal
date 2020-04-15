@@ -37,6 +37,15 @@
     color: var(--accent);
 }
 
+.post-toc ol ol, .post-toc ol ul, .post-toc ul ol, .post-toc ul ul {
+    margin-top: 0px;
+}
+
+.post-toc a {
+    text-decoration: none;
+    outline: none;
+}
+
 #back-to-top {
     display: inline-block;
     position: fixed;
