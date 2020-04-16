@@ -1,13 +1,20 @@
 @font-face {
-  font-family: 'Fira Code';
+  font-family: 'JetBrains Mono';
   font-style:  normal;
   font-weight: 400;
-  src: url("../fonts/FiraCode-Regular.woff") format("woff");
+  src: url("../fonts/JetBrainsMono-Regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'Fira Code';
+  font-family: 'JetBrains Mono';
   font-style:  normal;
   font-weight: 800;
-  src: url("../fonts/FiraCode-Bold.woff") format("woff");
+  src: url("../fonts/JetBrainsMono-Bold.woff2") format("woff2");
+}
+
+* {
+  -webkit-font-feature-settings: "liga" on, "calt" on;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: 'JetBrains Mono';
 }

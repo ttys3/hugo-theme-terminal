@@ -12,6 +12,6 @@
 @import 'footer';
 
 @import 'chroma';
-@import 'syntax';
+@import 'code';
 @import 'toc';
 @import 'copy-code';

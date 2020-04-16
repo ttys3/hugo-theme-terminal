@@ -1,0 +1,44 @@
+
+/* common code style */
+
+:root {
+	--code-margin: 20px;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+	background: none;
+  	font-family: 'JetBrains Mono', 'Fira Code', Consolas, Menlo, Monaco, 'Andale Mono WT', 
+    'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 
+    'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 
+    'Courier New', Courier, monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	tab-size: 2;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	border-radius: 0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: 0;
+	white-space: normal;
+}
