@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language }}">
 <head>
+    <meta charset="utf-8">
   {{ block "title" . }}
     <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
   {{ end }}
