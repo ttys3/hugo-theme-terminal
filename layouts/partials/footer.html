@@ -55,6 +55,7 @@
 
   window.addEventListener('load', function(event) {
 
+    // external link open in new tab
     const links = document.links;
     for (let i = 0, linksLength = links.length; i < linksLength; i++) {
       if (links[i].hostname != window.location.hostname && 
@@ -64,17 +65,23 @@
       } 
     }
 
+    // show toc
     if (document.querySelectorAll('#TableOfContents li').length > 0) {
       document.querySelector('#post-toc').style.display = 'block';
     }
     
-    document.querySelector('#post-toc').onclick = function(e) {
-      document.querySelectorAll('#post-toc li a').forEach(function(ele) {
-        ele.classList.remove('active');
-      });
-      e.target.classList.add('active');
-    }
-    
+    // toc active
+    document.querySelectorAll('#post-toc a').forEach(anchor => {
+      anchor.addEventListener('click', evt => {
+        // remove all .active
+        document.querySelectorAll('#post-toc a').forEach(ele => {
+          ele.classList.remove('active');
+        });
+        evt.target.classList.add('active');
+      })
+    });
+
+    // anchor smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
           e.preventDefault();
@@ -85,7 +92,7 @@
       });
     });
     
-    
+    // copy code button
     if (navigator && navigator.clipboard) {
       addCopyButtons(navigator.clipboard);
     }
