@@ -86,7 +86,10 @@
       anchor.addEventListener('click', function (e) {
           e.preventDefault();
     
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
+          // querySelector has limitation due to CSS selector standard
+          // like id="1-安装", querySelector('#1-安装') will failed with err
+          // SyntaxError: Document.querySelector: '#1-安装' is not a valid selector
+          document.getElementById(this.getAttribute('href').substring(1)).scrollIntoView({
               behavior: 'smooth'
           });
       });
