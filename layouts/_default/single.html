@@ -35,7 +35,7 @@
 
   {{ if .Params.cover }}
     {{ if .Site.Params.pageBundle }}
-      <img src="{{ printf "%s/%s" .Dir .Params.cover | absURL }}" class="post-cover" />
+      <img src="{{ printf "%s/%s" .File.Dir .Params.cover | absURL }}" class="post-cover" />
     {{ else }}
       <img src="{{ .Params.cover | absURL }}" class="post-cover" />
     {{ end }}
