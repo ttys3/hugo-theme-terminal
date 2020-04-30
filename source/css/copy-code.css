@@ -1,37 +1,49 @@
 /** code from https://www.dannyguo.com/blog/how-to-add-copy-to-clipboard-buttons-to-code-blocks-in-hugo/ **/
+.copy-code-button-wrap {
+    position: relative;
+}
+
+.highlight:hover > .copy-code-button-wrap > .copy-code-button {
+    visibility:visible;
+    opacity:1
+}
 
 .copy-code-button {
-    color: #272822;
-    background-color: var(--color);
-    border-color: var(--border-color);
-    border: 2px solid;
-    border-radius: 3px 3px 0px 0px;
-
-    /* right-align */
+    color: #adadad;
+    background-color: #222129;
+    /* border-color: var(--border-color); */
+    border: 1px solid;
+    border-color: #adadad;
+    border-radius: .4rem;
+    outline: none;
     display: block;
-    margin-left: auto;
-    margin-right: 0;
-
-    margin-bottom: -2px;
-    padding: 3px 8px;
+    padding: 4px 10px;
+    width: 60px;
     font-size: 0.8em;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease-in-out,visibility .2s ease-in-out,bottom .2s ease-in-out;
 }
 
 .copy-code-button:hover {
     cursor: pointer;
-    background-color: #F2F2F2;
+    color: #d6deeb;
+    border-color: #d6deeb;
+    background-color: #222129;
 }
 
 .copy-code-button:focus {
     /* Avoid an ugly focus outline on click in Chrome,
        but darken the button for accessibility.
        See https://stackoverflow.com/a/25298082/1481479 */
-    background-color: #E6E6E6;
-    outline: 0;
+    background-color: #222129;
 }
 
 .copy-code-button:active {
-    background-color: #D9D9D9;
+    background-color: #222129;
 }
 
 .highlight pre {

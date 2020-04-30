@@ -22,10 +22,14 @@
 <script>
   const addCopyButtons = function(clipboard) {
     document.querySelectorAll('pre > code').forEach(function (codeBlock) {
-        var button = document.createElement('button');
+        const button = document.createElement('button');
         button.className = 'copy-code-button';
         button.type = 'button';
         button.innerText = 'Copy';
+
+        const btnWrapper = document.createElement('div');
+        btnWrapper.className = 'copy-code-button-wrap';
+        btnWrapper.appendChild(button);
   
         button.addEventListener('click', function () {
             clipboard.writeText(codeBlock.innerText).then(function () {
@@ -33,7 +37,7 @@
                    leaving the button in a focused state. */
                 button.blur();
   
-                button.innerText = 'Copied!';
+                button.innerText = 'Done!';
   
                 setTimeout(function () {
                     button.innerText = 'Copy';
@@ -43,13 +47,8 @@
             });
         });
   
-        var pre = codeBlock.parentNode;
-        if (pre.parentNode.classList.contains('highlight')) {
-            var highlight = pre.parentNode;
-            highlight.parentNode.insertBefore(button, highlight);
-        } else {
-            pre.parentNode.insertBefore(button, pre);
-        }
+        const pre = codeBlock.parentNode;
+        pre.insertAdjacentElement('beforebegin', btnWrapper);
     });
   };
 
