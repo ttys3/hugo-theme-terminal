@@ -7,14 +7,14 @@
 {{ template "_internal/google_analytics.html" . }}
 
 <!-- Theme CSS -->
-<link rel="stylesheet" href="{{ "assets/style.css" | absURL }}?{{ resources.Get "assets/style.css" | md5}}">
+<link rel="stylesheet" href="{{ "assets/style.min.css" | absURL }}?{{ resources.Get "assets/style.min.css" | md5}}">
 {{ if (ne $.Site.Params.ThemeColor "orange") }}
-  <link rel="stylesheet" href="{{ (printf "assets/%s.css" $.Site.Params.ThemeColor) | absURL }}">
+  <link rel="stylesheet" href="{{ (printf "assets/%s.min.css" $.Site.Params.ThemeColor) | absURL }}">
 {{ end }}
 
-<!-- Custom CSS to override theme properties (/static/style.css) -->
-{{ if (fileExists "static/style.css") -}}
-  <link rel="stylesheet" href="{{ "style.css" | absURL }}">
+<!-- Custom CSS to override theme properties (/static/style.min.css) -->
+{{ if (fileExists "static/style.min.css") -}}
+  <link rel="stylesheet" href="{{ "style.min.css" | absURL }}">
 {{- end }}
 
 <!-- Icons -->
