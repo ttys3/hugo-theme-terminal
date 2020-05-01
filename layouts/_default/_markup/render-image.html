@@ -1,3 +1,7 @@
-<a class="post-img-lb" href="{{ .Destination | safeURL }}" data-caption="{{ .Text }}">
-    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
+{{ $imgSrc := .Destination | absURL | safeURL }}
+{{ if eq "index.md" .Page.File.LogicalName }}
+{{ $imgSrc = printf "%s/%s" .Page.File.Dir .Destination | absURL | safeURL }}
+{{ end }}
+<a class="post-img-lb" href="{{ $imgSrc }}" data-caption="{{ .Text }}">
+    <img src="{{ $imgSrc }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
 </a>
