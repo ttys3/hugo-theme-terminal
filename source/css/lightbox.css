@@ -1,0 +1,7 @@
+
+@import 'baguettebox.js/dist/baguetteBox.min.css';
+
+#baguetteBox-overlay .full-image img {
+    max-height: 90%;
+    max-width: 90%;
+}
