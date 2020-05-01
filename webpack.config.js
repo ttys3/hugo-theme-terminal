@@ -33,10 +33,6 @@ postcssStyles.forEach(entry => {
 
 module.exports = {
   mode: 'development',
-  node: {
-    Buffer: false,
-    process: false
-  },
   resolve: {
     extensions: [".js", ".css"],
     modules: ["source", "node_modules"],
