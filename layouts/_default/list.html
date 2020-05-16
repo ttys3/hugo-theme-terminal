@@ -40,7 +40,7 @@
     {{ end }}
 
     {{ if .Params.cover }}
-      {{ if .Site.Params.pageBundle }}
+      {{ if eq "index.md" .File.LogicalName }}
         <img src="{{ printf "%s/%s" .File.Dir .Params.cover | absURL }}" class="post-cover" />
       {{ else }}
         <img src="{{ .Params.cover | absURL }}" class="post-cover" />
