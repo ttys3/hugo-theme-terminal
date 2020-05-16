@@ -1,9 +1,14 @@
-{{ if or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "/") }}
-    <a href="{{ .Destination | safeURL }}" {{ with .Title}} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
-{{ else }}
+{{/* for absolute PATH, absURL will convert it to absolute URL */}}
+{{/* for external URL, absURL will keep it un-touched */}}
+{{ $linkHref := .Destination | absURL | safeURL }}
+
+{{ $theURL := .Destination | urls.Parse }}
+{{/* `absURL` can not handle relative PATH URL in page bundle */}}
+{{/* process relative PATH URL in page bundle: no Scheme and not start with `/` */}}
+{{ if and (eq $theURL.Scheme "") (not (strings.HasPrefix .Destination "/")) }}
     {{ if eq "index.md" .Page.File.LogicalName }}
-    <a href="{{ printf "%s/%s" .Page.File.Dir .Destination | absURL | safeURL }}" {{ with .Title}} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
-    {{ else }}
-    <a href="{{ .Destination | absURL | safeURL }}" {{ with .Title}} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+        {{ $linkHref = printf "%s/%s" .Page.File.Dir .Destination | absURL | safeURL }}
     {{ end }}
 {{ end }}
+
+<a href="{{ $linkHref }}" {{ with .Title}} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
