@@ -1,7 +1,14 @@
 {{ $imgSrc := .Destination | absURL | safeURL }}
-{{ if eq "index.md" .Page.File.LogicalName }}
-{{ $imgSrc = printf "%s/%s" .Page.File.Dir .Destination | absURL | safeURL }}
+
+{{ $theURL := .Destination | urls.Parse }}
+{{/* `absURL` can not handle relative PATH URL in page bundle */}}
+{{/* process relative PATH URL in page bundle: no Scheme and not start with `/` */}}
+{{ if and (eq $theURL.Scheme "") (not (strings.HasPrefix .Destination "/")) }}
+    {{ if eq "index.md" .Page.File.LogicalName }}
+        {{ $imgSrc = printf "%s/%s" .Page.File.Dir .Destination | absURL | safeURL }}
+    {{ end }}
 {{ end }}
+
 <a class="post-img-lb" href="{{ $imgSrc }}" data-caption="{{ .Text }}">
     <img src="{{ $imgSrc }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
 </a>
