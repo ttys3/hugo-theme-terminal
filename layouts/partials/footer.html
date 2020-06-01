@@ -1,13 +1,16 @@
 <footer class="footer">
   <div class="footer__inner">
+    <div class="copyright copyright--user">
     {{ if $.Site.Copyright }}
-      <div class="copyright copyright--user">
-        <span>{{ $.Site.Copyright | safeHTML }}</span>
-    {{else}}
-      <div class="copyright">
-        <span>© {{ now.Year }} Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>{{ $.Site.Copyright | safeHTML }} {{ now.Year }}</span>
     {{end}}
+        <span>:: Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+
+    {{ if $.Site.Params.StatusBadge }}
+        :: {{ $.Site.Params.StatusBadge | safeHTML }}
+    {{end}}
       </div>
   </div>
 </footer>

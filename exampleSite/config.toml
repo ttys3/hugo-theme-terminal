@@ -13,6 +13,8 @@ paginate = 5
   # for RSS feed filter https://gohugo.io/functions/where/#mainsections
   mainSections = ["post", "note", "docs"]
 
+  statusBadge = ""
+
 [languages]
   [languages.en]
     title = "Terminal"
