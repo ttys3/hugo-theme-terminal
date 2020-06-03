@@ -68,6 +68,7 @@
     background: transparent;
     margin: 40px 0;
     padding: 20px;
+    max-height: 50vh;
 
     @media (--phone) {
       padding: 10px;
