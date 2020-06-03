@@ -3,13 +3,69 @@
 {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
 {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
 
+<style>
+  h2.archive__group-year-header {
+    width: 100%;
+    margin: 1.8rem 2rem 0 0;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .archive__group-month {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 0 0;
+  }
+
+  .archive__group-month:not(:last-of-type) {
+    width: 100%;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .archive__group-month h3.archive__group-month-header {
+    margin: 1.8rem 2rem 0 0;
+  }
+
+  .archive__group-posts {
+    flex-grow: 1;
+    padding: 1.85rem 0 20px 0;
+  }
+
+  .archive__post {
+    margin: 0 0 5px;
+    overflow: hidden;
+  }
+
+  .archive__post h3.archive__post-title {
+    font-size: 1em;
+    font-weight: 400;
+    margin-top: 0px;
+    display: inline-flex;
+  }
+
+  .archive__post h3.archive__post-title a {
+    text-decoration: none;
+  }
+
+  .archive__post h3.archive__post-title a:hover {
+    text-decoration: underline;
+  }
+
+  .archive__post-date,
+  .archive__post-author,
+  .archive__post-read-time {
+    font-size: 15px;
+    float: right;
+    opacity: .8;
+  }
+</style>
+
 <div class="archive">
   <h1>{{ .Title }}</h1>
   {{ range .Site.RegularPages.GroupByPublishDate "2006" }}
   {{ if ne .Key "0001" }}
   <div class="archive__group-year">
     <h2 class="archive__group-year-header">{{ replace .Key "0001" "" }}</h2>
-    {{ range .Pages.GroupByDate "January" }}
+    {{ range .Pages.GroupByDate "2006-01" }}
     <div class="archive__group-month">
       <h3 class="archive__group-month-header">{{ .Key }}</h3>
       <div class="archive__group-posts">
@@ -19,21 +75,21 @@
           <h3 class="archive__post-title"><a
               href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
           </h3>
-          <div class="archive__post-meta">
+          {{/*  <div class="archive__post-meta">  */}}
             <span class="archive__post-date">
               {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
             </span>
-            {{ with .Params.Author }}
+            {{/*  {{ with .GitInfo }}
             <span class="archive__post-author">—
               {{ $.Site.Params.WrittenBy | default "Written by" }}
-              {{ . }}
+              {{ .AuthorName }}
             </span>
-            {{ end }}
+            {{ end }}  */}}
             {{ if $.Site.Params.ShowReadingTime }}
             <span class="archive__post-read-time">— {{ .ReadingTime }}
               {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
             {{ end }}
-          </div>
+          {{/*  </div>  */}}
         </div>
         {{ end }}
         {{ end }}
