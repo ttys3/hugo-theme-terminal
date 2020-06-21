@@ -48,8 +48,9 @@
   .menu {
     --shadow-color: color-mod(var(--background) a(80%));
     --shadow: 0 10px var(--shadow-color), -10px 10px var(--shadow-color), 10px 10px var(--shadow-color);
-    margin: 20px 10px;
-    /* color: var(--accent); */
+    /* margin: 20px 10px;
+    color: var(--accent); */
+    margin: 40px 10px 0;
     color: #e3e3e3;
 
     @media (--phone) {
