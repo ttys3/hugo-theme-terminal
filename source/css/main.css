@@ -64,6 +64,7 @@ body {
 
 a {
   color: inherit;
+  word-break: break-word; /* chromium */
 }
 
 
