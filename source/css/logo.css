@@ -1,8 +1,12 @@
 .logo {
-  display: flex;
+  /* display: flex; */
+  flex: 1;
   align-items: center;
   text-decoration: none;
-  background: var(--accent);
-  color: black;
+  /* background: var(--accent);
+  color: var(--accent); */
+  color: #e3e3e3;
+  font-size: 2em;
+  text-align: center;
   padding: 5px 10px;
 }

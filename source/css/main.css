@@ -66,6 +66,12 @@ a {
   color: inherit;
 }
 
+
+a:hover, a:focus {
+  outline: 0;
+  color: #bfbdbc;
+}
+
 img {
   display: block;
   max-width: 100%;

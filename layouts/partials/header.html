@@ -1,4 +1,7 @@
-<header class="header">
+<header class="header" style="background-image: url(/img/banner/banner-leaf-1571833_1920.jpg); 
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
   <div class="header__inner">
     <div class="header__logo">
       {{ partial "logo.html" . }}
@@ -8,4 +11,20 @@
   {{ if len $.Site.Menus }}
     {{ partial "menu.html" . }}
   {{ end }}
+
+
+  <a href="javascript:void(0);" onclick="javascript:prompt('Atom Feed: ', '{{ "/atom.xml" | absURL }}');" style="position: absolute;right: 10px;top: 10px; color: orange;" title="点击查看RSS地址">
+    <span class="iconfont icon-rss1"></span>
+  </a>
+
+  {{ $atomURLEncoded := strings.TrimPrefix "="  (querify "" ("/atom.xml" | absURL) ) | safeURL | htmlEscape }}
+
+  <a href="https://www.inoreader.com/feed/{{ $atomURLEncoded }}" style="position: absolute;right: 40px;top: 10px; color: orange;" title="点击通过 Inoreader 订阅">
+    <span class="iconfont icon-inoreader"></span>
+  </a>
+
+  <a href="https://feedly.com/i/subscription/feed/{{ $atomURLEncoded }}" style="position: absolute;right: 70px;top: 10px; color: orange;" title="点击通过 Feedly 订阅">
+    <span class="iconfont icon-feedly"></span>
+  </a>
+
 </header>
