@@ -155,12 +155,25 @@
     }
 
     &-trigger {
-      color: var(--accent);
+      /* color: var(--accent); */
+      color: #e3e3e3;
       border: 2px solid;
       margin-left: 10px;
       height: 100%;
       padding: 3px 8px;
       position: relative;
     }
+  }
+}
+
+.feed-links {
+  margin:0;
+  padding: 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: orange;
+  @media (--phone) {
+      display: none;
   }
 }

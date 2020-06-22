@@ -13,18 +13,20 @@ background-size: cover;">
   {{ end }}
 
 
-  <a href="javascript:void(0);" onclick="javascript:prompt('Atom Feed: ', '{{ "/atom.xml" | absURL }}');" style="position: absolute;right: 10px;top: 10px; color: orange;" title="点击查看RSS地址">
-    <span class="iconfont icon-rss1"></span>
-  </a>
+  <div class="feed-links">
+    {{ $atomURLEncoded := strings.TrimPrefix "="  (querify "" ("/atom.xml" | absURL) ) | safeURL | htmlEscape }}
 
-  {{ $atomURLEncoded := strings.TrimPrefix "="  (querify "" ("/atom.xml" | absURL) ) | safeURL | htmlEscape }}
+    <a href="https://feedly.com/i/subscription/feed/{{ $atomURLEncoded }}" style="position: relative; margin-right: 10px; text-decoration: none;" title="点击通过 Feedly 订阅">
+      <span class="iconfont icon-feedly"></span>
+    </a>
 
-  <a href="https://www.inoreader.com/feed/{{ $atomURLEncoded }}" style="position: absolute;right: 40px;top: 10px; color: orange;" title="点击通过 Inoreader 订阅">
-    <span class="iconfont icon-inoreader"></span>
-  </a>
+    <a href="https://www.inoreader.com/feed/{{ $atomURLEncoded }}" style="position: relative; margin-right: 10px; text-decoration: none;" title="点击通过 Inoreader 订阅">
+      <span class="iconfont icon-inoreader"></span>
+    </a>
 
-  <a href="https://feedly.com/i/subscription/feed/{{ $atomURLEncoded }}" style="position: absolute;right: 70px;top: 10px; color: orange;" title="点击通过 Feedly 订阅">
-    <span class="iconfont icon-feedly"></span>
-  </a>
+    <a href="javascript:void(0);" onclick="javascript:prompt('Atom Feed: ', '{{ "/atom.xml" | absURL }}');" style="position: relative; margin-right: 0px; text-decoration: none;" title="点击查看RSS地址">
+      <span class="iconfont icon-rss1"></span>
+    </a>
+  </div>
 
 </header>
