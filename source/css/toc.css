@@ -2,7 +2,8 @@
     display: none;
     position: fixed;
     top: 30%;
-    width: 220px;
+    min-width: 220px;
+    max-width: 320px;
     margin-left: 820px;
     padding: 10px;
     font-family: Athelas,STHeiti,Microsoft Yahei,serif;
