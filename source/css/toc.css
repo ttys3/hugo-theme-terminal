@@ -1,10 +1,11 @@
-.post .post-toc {
+.post-toc {
     display: none;
-    position: fixed;
+    position: sticky;
     top: 30%;
-    min-width: 220px;
-    max-width: 320px;
-    margin-left: 820px;
+    width: 320px;
+    height: 100%;
+    max-height: 560px;
+    margin: 0 -324px 0 auto;
     padding: 10px;
     font-family: Athelas,STHeiti,Microsoft Yahei,serif;
     border-radius: 5px;
@@ -17,7 +18,7 @@
 }
 
 
-.post .post-toc .post-toc-title {
+.post-toc .post-toc-title {
 
     margin: 0 10px;
     font-size: 20px;
@@ -26,15 +27,15 @@
 
 }
 
-.post .post-toc .post-toc-content ul {
+.post-toc .post-toc-content ul {
     list-style: square;
 }
 
-.post .post-toc .post-toc-content ul li::before {
+.post-toc .post-toc-content ul li::before {
     content: "";
 }
 
-.post .post-toc .active {
+.post-toc .active {
     color: var(--accent);
 }
 

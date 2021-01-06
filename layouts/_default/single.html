@@ -1,4 +1,5 @@
 {{ define "main" }}
+
 <div class="post">
   <h1 class="post-title">{{ .Title | markdownify }}</h1>
   <div class="post-meta">
@@ -40,9 +41,6 @@
     {{ end }}
   {{ end }}
 
-  <!-- TOC -->
-  {{- partial "post/toc.html" . -}}
-
   <!-- Outdated Info Warning -->
   {{- partial "post/outdated-info-warning.html" . -}}
 
@@ -61,4 +59,8 @@
 
   {{ partial "comments.html" . }}
 </div>
+
+<!-- TOC -->
+{{- partial "post/toc.html" . -}}
+
 {{ end }}
