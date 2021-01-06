@@ -4,6 +4,10 @@
 {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
 
 <style>
+  .archive {
+    width: 100%;
+  }
+
   h2.archive__group-year-header {
     width: 100%;
     margin: 1.8rem 2rem 0 0;
