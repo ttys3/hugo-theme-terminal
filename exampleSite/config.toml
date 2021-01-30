@@ -15,6 +15,9 @@ paginate = 5
 
   statusBadge = ""
 
+  utterancesRepo = ""
+  utterancesTheme = "preferred-color-scheme"
+
 [languages]
   [languages.en]
     title = "Terminal"

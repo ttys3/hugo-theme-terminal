@@ -6,3 +6,14 @@ Hugo directory and insert:
 
 or whatever comment engine you want -> https://gohugo.io/content-management/comments/#readout
 -->
+
+{{ if and (.Params.comments) (ne "" $.Site.Params.utterancesRepo) }}
+<script src="https://utteranc.es/client.js"
+        repo="{{ $.Site.Params.utterancesRepo }}"
+        issue-term="pathname"
+        label="Comment"
+        theme="{{ $.Site.Params.utterancesTheme }}"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}
