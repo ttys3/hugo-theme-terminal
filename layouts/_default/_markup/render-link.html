@@ -7,7 +7,7 @@
 {{/* process relative PATH URL in page bundle: no Scheme and not start with `/` */}}
 {{ if and (eq $theURL.Scheme "") (not (strings.HasPrefix .Destination "/")) }}
     {{ if eq "index.md" .Page.File.LogicalName }}
-        {{ $linkHref = printf "%s/%s" .Page.File.Dir .Destination | absURL | safeURL }}
+        {{ $linkHref = printf "%s/%s" .Page.RelPermalink .Destination | absURL | safeURL }}
     {{ end }}
 {{ end }}
 
