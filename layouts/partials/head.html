@@ -40,20 +40,29 @@
 <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ $.Site.Title }}" />
-{{ if and (not .IsHome) (isset .Params "cover") }}
+{{ if not .IsHome }}
 
-  {{ if eq "index.md" .File.LogicalName }}
-    <meta property="og:image" content="{{ printf "%s/%s" .RelPermalink .Params.cover | absURL }}">
+  {{ if isset .Params "cover" }}
+      {{ if eq "index.md" $.Page.File.LogicalName }}
+        <meta property="og:image" content="{{ printf "%s/%s" .RelPermalink .Params.cover | absURL }}">
+      {{ else }}
+        <meta property="og:image" content="{{ .Param "cover" | absURL }}">
+      {{ end }}
   {{ else }}
-    <meta property="og:image" content="{{ .Param "cover" | absURL }}">
-  {{ end }}
-  
+      <!-- get first image as featured image in post if no cover is set -->
+      {{ with (index (.Resources.ByType "image") 0) }}
+        <meta property="og:image" content="{{ .RelPermalink | absURL }}">
+      {{ end }}
+  {{ end }} 
+
 {{ else }}
+
   {{ if isset $.Site.Params "favicon" }}
     <meta property="og:image" content="{{ $.Site.Params.favicon | absURL }}">
   {{ else }}
     <meta property="og:image" content="{{ printf "img/favicon/%s.png" $.Site.Params.ThemeColor | absURL }}">
   {{ end }}
+
 {{ end }}
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
