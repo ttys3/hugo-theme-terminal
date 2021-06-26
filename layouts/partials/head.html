@@ -43,15 +43,19 @@
 {{ if not .IsHome }}
 
   {{ if isset .Params "cover" }}
+      <!-- be aware that in this context, .RelPermalink is $.Page.RelPermalink -->
+      {{ printf "<!-- .ResourceType=%#v .File.LogicalName=%#v .RelPermalink=%#v .Permalink=%#v .Params.cover=%#v -->" .ResourceType $.Page.File.LogicalName .RelPermalink .Permalink .Params.cover | safeHTML }}
       {{ if eq "index.md" $.Page.File.LogicalName }}
-        <meta property="og:image" content="{{ printf "%s/%s" .RelPermalink .Params.cover | absURL }}">
+        <meta property="og:image" content="{{ printf "%s%s" .Permalink .Params.cover }}">
       {{ else }}
         <meta property="og:image" content="{{ .Param "cover" | absURL }}">
       {{ end }}
   {{ else }}
       <!-- get first image as featured image in post if no cover is set -->
       {{ with (index (.Resources.ByType "image") 0) }}
-        <meta property="og:image" content="{{ .RelPermalink | absURL }}">
+        <!-- be aware that in this context, .RelPermalink is resource.RelPermalink -->
+        {{ printf "<!-- .ResourceType=%#v .File.LogicalName=%#v .Resources.ByType image .RelPermalink=%#v .Permalink=%#v -->" .ResourceType $.Page.File.LogicalName  .RelPermalink .Permalink | safeHTML }}
+        <meta property="og:image" content="{{ .Permalink }}">
       {{ end }}
   {{ end }} 
 
