@@ -30,10 +30,11 @@
 {{ with $.Site.Params.Twitter.site }}
   <meta name="twitter:site" content="{{ $.Site.Params.Twitter.site }}" />
 {{ end }}
-<meta name="twitter:creator" content="{{ if .IsHome }}{{ $.Site.Params.Twitter.creator }}{{ else if isset .Params "authortwitter" }}{{ .Params.authorTwitter }}{{ else }}{{ .Params.Author }}{{ end }}" />
-
+{{ with $.Site.Params.Twitter.creator }}
+  <meta name="twitter:creator" content="{{ if .IsHome }}{{ $.Site.Params.Twitter.creator }}{{ else if isset .Params "authortwitter" }}{{ .Params.authorTwitter }}{{ else }}{{ .Params.Author }}{{ end }}" />
+{{ end }}
 <!-- OG data -->
-<meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
+<!-- <meta property="og:locale" content="{{ $.Site.Language.Lang }}" /> -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ end }}">
 <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
